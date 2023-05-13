@@ -32,43 +32,13 @@ class Solution {
   public:
     int bitMagic(int n, vector<int> &arr) {
         // code here
-        int i=0,j=n-1;
-        int res=0;
-        int k=-1;
-        while(i<j)
-        {
-            if(arr[i]!=arr[j])
-            {
-                if(k==-1)
-                {
-                    if(arr[i]==1)
-                        k=i;
-                    else
-                        k=j;
-                }
-                else
-                {
-                    if(arr[i]==1)
-                    {
-                        arr[k]=0;
-                        arr[i]=0;
-                    }
-                    else
-                    {
-                        arr[k]=0;
-                        arr[j]=0;
-                    }
-                    k=-1;
-                    res++;
-                }
-            }
-            i++;
-            j--;
+        int ans = 0;
         
+        for(int i = 0; i<n/2; i++) {
+             if(arr[i] != arr[n-1-i])
+             ans++;
         }
-        if(k!=-1)
-            res++;
-        return res;
+        return (ans+1)/2;
     }
 };
 
