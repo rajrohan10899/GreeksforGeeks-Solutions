@@ -12,24 +12,17 @@ class Solution
     int missingNumber(int arr[], int n) 
     { 
         // Your code here
-    //int n = nums.size(); //check which number is missing from 1 to n.
-     for(int  i = 0; i<n; i++) {
-       int element = arr[i];
-       
-       if(element >= 1 && element <= n){
-         int chair = element -1;
- 
-       if(arr[chair]  != element) {
-         swap(arr[chair], arr[i]);
-         i--;
+        for(int i=0; i<n; i++) {
+            while(arr[i]  > 0 && arr[i] < n && arr[i] != arr[arr[i] - 1]){
+                swap(arr[i], arr[arr[i] -1]);
+            }
         }
-       }
-     }
-     //iterate over yur elements
-     for(int  i = 0; i<n; i++) {
-       if(i+1!=arr[i]) return i+1;
-     }
-     return n+1;
+        for(int i = 0; i<n; i++) {
+            if(arr[i] != i + 1) {
+                return i+1;
+            }
+        }
+        return n+1;
     } 
 };
 
