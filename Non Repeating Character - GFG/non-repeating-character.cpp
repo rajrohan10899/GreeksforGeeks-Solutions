@@ -12,15 +12,18 @@ class Solution
     char nonrepeatingCharacter(string S)
     {
        //Your code here
-       map<char, int> mpp;
-       for(int i = 0; i<S.length(); i++) {
+       unordered_map<char, int> mpp;
+       
+       for(int i=0; i<S.length(); i++) {
            mpp[S[i]]++;
        }
        for(int i = 0; i<S.length(); i++) {
-           if(mpp[S[i]]==1) return S[i];
+           if(mpp[S[i]] == 1){
+               return S[i];
+               break;
+           }
        }
        return '$';
-       
     }
 
 };
