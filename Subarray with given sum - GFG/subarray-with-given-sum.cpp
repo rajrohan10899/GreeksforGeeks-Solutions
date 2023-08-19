@@ -11,31 +11,32 @@ class Solution
     //Function to find a continuous sub-array which adds up to a given number.
     vector<int> subarraySum(vector<int>arr, int n, long long s)
     {
-        long long smm = 0;
-        
-        int l = 0, r = 0;
-        if(s == 0) return {-1};
-        
-        while(r < n) {
-            while(r<n && smm < s) {
-                smm += arr[r];
-                r++;
+        int i=0;
+        int j=0;
+        vector<int>ans;
+        long long sum=0;
+        while(j<n){
+          sum+=arr[j];  
+            while(i<j && sum>s){
+              sum=sum-arr[i]; 
+              i++;
             }
-            
-            while(l<=r && smm > s) {
-                smm -= arr[l];
-                l++;
+            if(sum==s){
+              ans.push_back(i+1);
+              ans.push_back(j+1);
+              return ans;
             }
-            if(l > r) {
-                smm = 0; r = l;
-            }
-            if(smm == s) return {l+1, r};
+            j++;  
         }
-        
-        return {-1};
+          ans.push_back(-1);
+        return ans;
         
     }
 };
+
+  
+   
+  
 
 //{ Driver Code Starts.
 
