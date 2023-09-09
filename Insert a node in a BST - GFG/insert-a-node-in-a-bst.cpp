@@ -32,6 +32,21 @@ struct Node {
 };
 */
 
+// Function to insert a node in a BST.
+
+/*
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+
 class Solution
 {
     public:
